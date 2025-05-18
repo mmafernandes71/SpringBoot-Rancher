@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: minha-app-java-service
+  name: springboot-rancher
 spec:
   selector:
-    app: minha-app-java
+    app: springboot-rancher
   type: NodePort
   ports:
     - protocol: TCP
