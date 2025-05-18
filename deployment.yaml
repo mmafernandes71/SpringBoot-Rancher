@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-rancher
+  labels:
+    app: springboot-rancher
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-rancher
+  template:
+    metadata:
+      labels:
+        app: springboot-rancher
+    spec:
+      containers:
+        - name: springboot-rancher
+          image: harbor.local/dev/springboot-rancher:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+          env:
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Xss2m -Dserver.port=8080"
