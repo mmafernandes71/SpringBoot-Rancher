@@ -7,10 +7,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class HelloController {
-
-	@RequestMapping("/hello.html")
-	public ModelAndView hellomethod() {
-		return new ModelAndView("hello");
+	
+	@GetMapping("/")
+	public String home() {
+        	return "Aplicação está no ar!";
 	}
 
 }
