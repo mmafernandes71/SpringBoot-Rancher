@@ -8,4 +8,4 @@ RUN mvn clean package -DskipTests
 FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar springbootapp.jar
-ENTRYPOINT ["java", "-jar", "springbootapp.war"]
+ENTRYPOINT ["java", "-jar", "springbootapp.jar"]
